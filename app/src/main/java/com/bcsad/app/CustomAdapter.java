@@ -8,8 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-    private String[] localDataSet;
+    private ArrayList<String> localDataSet;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
@@ -24,7 +26,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         }
     }
 
-    public CustomAdapter(String[] dataSet) {
+    public CustomAdapter(ArrayList<String> dataSet) {
         localDataSet = dataSet;
     }
 
@@ -32,17 +34,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.activity_main, viewGroup, false);
+                .inflate(R.layout.recycle_items, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        viewHolder.getTextView().setText(localDataSet[position]);
+        viewHolder.getTextView().setText(localDataSet.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return localDataSet != null ? localDataSet.length : 0;
+        return localDataSet != null ? localDataSet.size() : 0;
     }
 }

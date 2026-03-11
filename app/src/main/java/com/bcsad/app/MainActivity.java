@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -13,13 +15,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Define a sample dataset for the adapter
-        String[] dataSet = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
+        ArrayList<String> List = new ArrayList<>();
+        List.add("testing");
+        List.add("2");
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        CustomAdapter customAdapter = new CustomAdapter(dataSet);
+        CustomAdapter customAdapter = new CustomAdapter(List);
         recyclerView.setAdapter(customAdapter);
     }
 }
