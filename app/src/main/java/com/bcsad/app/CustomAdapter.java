@@ -14,15 +14,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     private ArrayList<String> localDataSet;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView recycle_content;
 
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView);
+            recycle_content = (TextView) view.findViewById(R.id.recycle_content);
         }
 
         public TextView getTextView() {
-            return textView;
+            return recycle_content;
         }
     }
 
